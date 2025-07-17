@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Job Entry System</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div class="container">
+    <h1>Job Entry System</h1>
+    
+    <div class="tabs">
+      <button class="tablink active" onclick="openTab(event, 'single')">Single Entry</button>
+      <button class="tablink" onclick="openTab(event, 'bulk')">Bulk Company Insert</button>
+    </div>
+    
+    <!-- Tab 1: Single Entry -->
+    <div id="single" class="tabcontent active">
+      <form id="jobForm" autocomplete="off">
+        <label for="role">Role</label>
+        <select id="role" required>
+          <option value="" disabled selected>Select role</option>
+          <option value="Data Engineer">Data Engineer</option>
+          <option value="Software Engineer">Software Engineer</option>
+        </select>
+
+        <label for="company">Company</label>
+        <input id="company" type="text" placeholder="Enter company name" required />
+
+        <label for="location">Location</label>
+        <input id="location" type="text" placeholder="Enter location" required />
+
+        <label for="skills">Skills</label>
+        <input id="skills" type="text" placeholder="Enter skills (comma separated)" required />
+
+        <label for="description">Description</label>
+        <textarea id="description" rows="4" placeholder="Brief job description" required></textarea>
+
+        <button type="button" onclick="saveJob()">Save Job</button>
+      </form>
+    </div>
+
+    <!-- Tab 2: Bulk Company Insert -->
+    <div id="bulk" class="tabcontent">
+      <form id="bulkForm" autocomplete="off">
+        <label for="bulkRole">Role</label>
+        <select id="bulkRole" required>
+          <option value="" disabled selected>Select role</option>
+          <option value="Data Engineer">Data Engineer</option>
+          <option value="Software Engineer">Software Engineer</option>
+        </select>
+
+        <label for="companyList">Company List (one per line)</label>
+        <textarea id="companyList" rows="8" placeholder="Paste companies here, one per line" required></textarea>
+
+        <button type="button" onclick="saveBulkCompanies()">Add Companies</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
